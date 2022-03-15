@@ -8,9 +8,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
-
-- (void)addNumber:(id)number;
-- (id)removeNumber;
+@property (nonatomic,strong) NSMutableArray *mArray;
+- (void)push:(NSNumber*)number;
+- (NSNumber*)popFirst;
 
 @end
 

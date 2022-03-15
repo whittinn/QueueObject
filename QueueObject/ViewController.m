@@ -12,26 +12,35 @@
 @end
 
 @implementation ViewController
+@synthesize  mArray;
 
-NSMutableArray * mArray;
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    mArray = [[NSMutableArray alloc] init ];
-}
-
-
-- (void)addNumber:(id)number{
-    return  [mArray addObject:number];
-}
-
-- (id)removeNumber{
-    
-    id value = [mArray firstObject];
-    [mArray removeObjectAtIndex:0];
-    return value;
+- (instancetype)init{
+    self = [super init];
+    if (self){
+       mArray = [[ NSMutableArray alloc] init];
+      
+    }
+    return self;
     
 }
+
+
+- (void)push:(NSNumber*)number{
+    [self.mArray addObject:number];
+    
+}
+- (NSNumber*)popFirst{
+    
+    if (self.mArray.count > 0){
+        NSNumber *value = mArray[0];
+        [mArray removeObjectAtIndex:0];
+        
+        return value;
+    }else{
+        return nil;
+    }
+
+}
+
 
 @end

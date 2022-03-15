@@ -26,17 +26,16 @@ ViewController *vc = NULL;
 
 - (void)testIfArayHasObject{
     
-    NSNumber *value = [NSNumber numberWithInt:3];
-    [vc addNumber:value];
+    [vc push:@2];
+    XCTAssertEqual([[ vc mArray]count ], 1);
     //Test Array
 }
 
 -(void)testIfArrayHasNoObject{
     
-    NSNumber *value = [NSNumber numberWithInt:3];
-    [vc addNumber:value];
-    [vc removeNumber];
-    XCTAssertEqual(value, 3);
+    [vc push:@1];
+    [vc push:@3];
+    XCTAssertEqual([vc popFirst], @1);
 }
 
 @end
